@@ -42,6 +42,11 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
         </dependency>
+        <dependency>
+  			<groupId>com.tairan.credit.cloud</groupId>
+  			<artifactId>credit-thirdparty-api</artifactId>
+  			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
