@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.txframework</groupId>
+		<artifactId>tx-parent</artifactId>
+		<version>0.0.1.M1-SNAPSHOT</version>
+	</parent>
+	<groupId>com.fengdai</groupId>
+	<artifactId>suggestion-parent</artifactId>
+	<name>core-suggestion</name>
+	<packaging>pom</packaging>
+	<modules>
+		<module>core-suggestion</module>
+		<module>core-suggestion-api</module>
+	</modules>
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.mongodb</groupId>
+				<artifactId>mongo-java-driver</artifactId>
+				<version>3.2.0</version>
+			</dependency>
+					<dependency>
+				<groupId>com.fengdai</groupId>
+				<artifactId>core-suggestion</artifactId>
+				<version>0.0.1.M1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fengdai</groupId>
+				<artifactId>core-suggestion-api</artifactId>
+				<version>0.0.1.M1-SNAPSHOT</version>
+		</dependency>
+		</dependencies>
+	</dependencyManagement> 
+	<dependencies>	
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.6.2</version>
+		</dependency>
+	<dependency>
+			<groupId>com.tairan.credit.cloud</groupId>
+        	<artifactId>credit-thirdparty-api</artifactId>
+       		 <version>1.0.0-SNAPSHOT</version>
+     </dependency>
+	</dependencies>
+</project>
