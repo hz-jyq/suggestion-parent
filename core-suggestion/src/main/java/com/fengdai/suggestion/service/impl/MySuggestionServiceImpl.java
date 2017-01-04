@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.fengdai.base.dubbo.configure.CacheClient;
+import com.fengdai.base.exception.BusinessException;
+import com.fengdai.base.exception.ErrorCode;
 import com.fengdai.suggestion.dao.MySuggestionDao;
 import com.fengdai.suggestion.model.MySuggestion;
 import com.fengdai.suggestion.service.MySuggestionService;
@@ -23,6 +25,7 @@ public class MySuggestionServiceImpl implements MySuggestionService {
 /*		FengdaiCreditService fengdaiCreditService = context.getBean(FengdaiCreditService.class);
 		QueryCredit queryCredit = new QueryCredit();
 		String json = fengdaiCreditService.collectNfcsInfo(queryCredit);*/
+		
 		MySuggestion  mySuggestion;
 		mySuggestion=(MySuggestion)cacheClient.get("my");
 		if(mySuggestion!=null){
@@ -31,5 +34,10 @@ public class MySuggestionServiceImpl implements MySuggestionService {
 		mySuggestion=mySuggestionDao.selectByPrimaryKey(id);
 		cacheClient.set("my",mySuggestion);
 		return mySuggestion;
+	}
+	
+	public  MySuggestion pageMySuggestion(){
+		
+		return null;
 	}
 }
