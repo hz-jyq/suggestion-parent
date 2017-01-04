@@ -23,6 +23,13 @@ public class MySuggestionServiceImpl implements MySuggestionService {
 /*		FengdaiCreditService fengdaiCreditService = context.getBean(FengdaiCreditService.class);
 		QueryCredit queryCredit = new QueryCredit();
 		String json = fengdaiCreditService.collectNfcsInfo(queryCredit);*/
-		return mySuggestionDao.selectByPrimaryKey(id);
+		MySuggestion  mySuggestion;
+		mySuggestion=(MySuggestion)cacheClient.get("my");
+		if(mySuggestion!=null){
+			return mySuggestion;
+		}
+		mySuggestion=mySuggestionDao.selectByPrimaryKey(id);
+		cacheClient.set("my",mySuggestion);
+		return mySuggestion;
 	}
 }
