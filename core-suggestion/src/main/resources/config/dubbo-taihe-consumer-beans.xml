@@ -5,7 +5,7 @@
        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
 	<dubbo:reference interface="com.tairan.cloud.credit.service.FengdaiCreditService" id="fengdaiCreditService"/>
-	<dubbo:application name="thirdparty-dubbo-consumer1" />
+	<dubbo:application name="thirdparty-dubbo-consumer" />
 	<dubbo:registry address="zookeeper://172.30.248.178:2181" />
 	<dubbo:consumer timeout="5000" />
 </beans>

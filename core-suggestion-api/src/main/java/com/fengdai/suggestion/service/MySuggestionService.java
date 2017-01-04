@@ -3,5 +3,5 @@ package com.fengdai.suggestion.service;
 import com.fengdai.suggestion.model.MySuggestion;
 
 public interface MySuggestionService {
-	MySuggestion selectByPrimaryKey(String id);
+	MySuggestion selectByPrimaryKey(String id) throws RuntimeException;
 }	
