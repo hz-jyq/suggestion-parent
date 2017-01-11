@@ -21,13 +21,16 @@ public class MySuggestionServiceImpl implements MySuggestionService {
 			new String[] { "classpath:config/dubbo-taihe-consumer-beans.xml" });
 
 	@Override
-	public MySuggestion selectByPrimaryKey(String id){
+	public MySuggestion selectByPrimaryKey(String id)throws BusinessException{
+		if(id==null){
+			throw new BusinessException(ErrorCode.ERROR_NOT_NULL_ERROR);
+		}
 /*		FengdaiCreditService fengdaiCreditService = context.getBean(FengdaiCreditService.class);
 		QueryCredit queryCredit = new QueryCredit();
 		String json = fengdaiCreditService.collectNfcsInfo(queryCredit);*/
-		
 		MySuggestion  mySuggestion;
 		mySuggestion=(MySuggestion)cacheClient.get("my");
+		
 		if(mySuggestion!=null){
 			return mySuggestion;
 		}
