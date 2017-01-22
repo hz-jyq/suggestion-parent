@@ -13,12 +13,12 @@
 		<result column="del_flag" jdbcType="CHAR" property="delFlag" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		id, title, context
+		id, title, context,create_by,create_date,update_by,update_date,del_flag
 	</sql>
 	<select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
 		select 
 		<include refid="Base_Column_List" />
-		from mysuggestion
+		from mysuggestion 
 		where id = #{id,jdbcType=VARCHAR}
 	</select>
 </mapper>

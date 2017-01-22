@@ -1,21 +1,24 @@
 package com.fengdai.suggestion.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.fengdai.base.dubbo.configure.CacheClient;
 import com.fengdai.base.exception.BusinessException;
 import com.fengdai.base.exception.ErrorCode;
+import com.fengdai.suggestion.Dto.MySuggestionDto;
 import com.fengdai.suggestion.dao.MySuggestionDao;
+import com.fengdai.suggestion.form.MySuggestionForm;
 import com.fengdai.suggestion.model.MySuggestion;
 import com.fengdai.suggestion.service.MySuggestionService;
+import com.github.pagehelper.PageInfo;
 
 public class MySuggestionServiceImpl implements MySuggestionService {
 
 	@Autowired
 	private MySuggestionDao mySuggestionDao;
-	@Autowired
-	private CacheClient cacheClient;
 
 	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
 			new String[] { "classpath:config/dubbo-taihe-consumer-beans.xml" });
@@ -25,22 +28,13 @@ public class MySuggestionServiceImpl implements MySuggestionService {
 		if(id==null){
 			throw new BusinessException(ErrorCode.ERROR_NOT_NULL_ERROR);
 		}
-/*		FengdaiCreditService fengdaiCreditService = context.getBean(FengdaiCreditService.class);
-		QueryCredit queryCredit = new QueryCredit();
-		String json = fengdaiCreditService.collectNfcsInfo(queryCredit);*/
-		MySuggestion  mySuggestion;
-		mySuggestion=(MySuggestion)cacheClient.get("my");
-		
-		if(mySuggestion!=null){
-			return mySuggestion;
-		}
-		mySuggestion=mySuggestionDao.selectByPrimaryKey(id);
-		cacheClient.set("my",mySuggestion);
-		return mySuggestion;
+		return mySuggestionDao.selectByPrimaryKey(id);
 	}
 	
-	public  MySuggestion pageMySuggestion(){
-		
-		return null;
+	public  PageInfo<MySuggestion> pageMySuggestion(MySuggestionForm suggestionForm){
+		PageInfo<MySuggestion>  page=new PageInfo<MySuggestion>(mySuggestionDao.selectByForm(suggestionForm));
+		List<MySuggestionDto> s=new ArrayList<MySuggestionDto>();
+		List<MySuggestion> ss=new ArrayList<MySuggestion>(s);
+		return page;
 	}
 }
