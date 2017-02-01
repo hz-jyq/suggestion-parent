@@ -1,19 +1,22 @@
 package com.fengdai.suggestion.form;
 
-import java.io.Serializable;
+import javax.ws.rs.QueryParam;
 
-public class MySuggestionForm implements Serializable{
+import com.fengdai.base.form.AbstractPageForm;
 
-	private static final long serialVersionUID = -8410736417704796602L;
+public class MySuggestionForm extends AbstractPageForm {
 	
-		private String context;
+	private static final long serialVersionUID = 5388424862764009024L;
+	
+	@QueryParam("context")
+	private String context;
 
-		public String getContext() {
-			return context;
-		}
+	public String getContext() {
+		return context;
+	}
 
-		public void setContext(String context) {
-			this.context = context;
-		}
-		
+	public void setContext(String context) {
+		this.context = context;
+	}
+
 }

@@ -21,4 +21,10 @@
 		from mysuggestion 
 		where id = #{id,jdbcType=VARCHAR}
 	</select>
+	
+	<select id="selectByForm"  resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List" />
+		from mysuggestion 
+	</select>
 </mapper>

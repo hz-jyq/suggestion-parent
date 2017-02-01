@@ -32,5 +32,6 @@
 
 	<bean id="suggestion-sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 			<property name="dataSource" ref="suggestion-dataSource" />
+			<property name="plugins" ref="pagehelper"/>
 	</bean>
 </beans>
