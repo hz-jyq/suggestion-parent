@@ -26,6 +26,7 @@ public class MySuggestionServiceImpl implements MySuggestionService {
 	@Override
 	public MySuggestion selectByPrimaryKey(String id)throws BusinessException{
 		if(id==null || id.equals("")){
+			log.error("错误");
 			throw new BusinessException(ErrorCode.ERROR_PARAMS);
 		}
 		return mySuggestionDao.selectByPrimaryKey(id);
