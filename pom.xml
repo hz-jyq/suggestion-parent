@@ -45,11 +45,6 @@
 			<version>2.6.2</version>
 		</dependency>
 		<dependency>
-			<groupId>com.tairan.credit.cloud</groupId>
-			<artifactId>credit-thirdparty-api</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 		</dependency>
