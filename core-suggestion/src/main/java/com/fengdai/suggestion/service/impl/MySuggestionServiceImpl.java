@@ -36,4 +36,23 @@ public class MySuggestionServiceImpl implements MySuggestionService {
 		PageInfo<MySuggestion>  page=new PageInfo<MySuggestion>(mySuggestionDao.selectByForm(suggestionForm));
 		return page;
 	}
+
+	@Override
+	public int save(MySuggestion mySuggestion) {
+		mySuggestion.setContext("11");
+		mySuggestion.setId("555");
+		mySuggestionDao.save(mySuggestion);
+		return 0;
+	}
+	
+	@Override
+	public void lockSelete(MySuggestion mySuggestion) {
+		
+	}
+
+	@Override
+	public int update(MySuggestion mySuggestion) {
+		mySuggestionDao.update(mySuggestion);
+		return 0;
+	}
 }

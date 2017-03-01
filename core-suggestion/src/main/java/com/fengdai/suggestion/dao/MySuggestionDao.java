@@ -9,4 +9,8 @@ public interface MySuggestionDao {
 	 MySuggestion selectByPrimaryKey(String id);
 	 
 	 List<MySuggestion>  selectByForm(MySuggestionForm suggestionForm);
+	 
+	  void save(MySuggestion suggestion);
+	  
+	  void update(MySuggestion suggestion);
 }

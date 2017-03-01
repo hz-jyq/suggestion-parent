@@ -27,4 +27,11 @@
 		<include refid="Base_Column_List" />
 		from mysuggestion 
 	</select>
+	<insert id="save" parameterType="com.fengdai.suggestion.model.MySuggestion">
+	INSERT INTO mysuggestion (id, context, title,  del_flag, create_by,create_date, update_by, update_date,remarks)
+    	values (#{id,jdbcType=VARCHAR}, #{context,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+		#{delFlag,jdbcType=CHAR}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, 
+      	#{remarks,jdbcType=VARCHAR})
+	</insert>
+
 </mapper>
