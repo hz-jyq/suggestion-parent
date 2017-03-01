@@ -13,7 +13,7 @@
 	
 	<!-- 定义事务作用范围 -->
 	<aop:config>
-		<aop:pointcut expression="execution(* com.fengdai.suggestion.impl.*.*(..))" id="suggestion-transaction"/>
+		<aop:pointcut expression="execution(* com.fengdai.suggestion.service.impl.*.*(..))" id="suggestion-transaction"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="suggestion-transaction"/>
 	</aop:config>
 	
